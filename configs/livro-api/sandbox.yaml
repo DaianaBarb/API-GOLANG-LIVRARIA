@@ -1,0 +1,29 @@
+
+ignite:
+  mongo:
+    uri: "mongodb://localhost:27017/admin"
+    database: "admin"
+    auth:
+      username:
+      password:
+  zerolog:
+    level: TRACE
+    formatter: TEXT
+app:    
+  domain:
+    repository:
+      attribute: mongodb
+    service:
+      attribute:
+        rules:
+          use_predefined_values: WARN
+          variation: WARN
+          describe_image: WARN
+          multivalued: WARN
+          required: ERROR
+  provider:
+    database:
+      mongo:
+        collection: livros
+        livroCollection: livros
+        limit: 20

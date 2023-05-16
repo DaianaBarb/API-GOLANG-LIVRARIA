@@ -1,0 +1,36 @@
+ignite:
+  log:
+    type: ZEROLOG
+  zerolog:
+    level: ERROR
+    formatter: JSON
+    console:
+      enabled: true
+  datadog:
+    enabled: true
+    profiler:
+      enabled: false
+  mongo:
+    plugins:
+      datadog:
+        enabled: true
+
+
+app:    
+  domain:
+    repository:
+      attribute: mongodb
+    service:
+      attribute:
+        rules:
+          use_predefined_values: WARN
+          variation: WARN
+          describe_image: WARN
+          multivalued: WARN
+          required: ERROR
+  provider:
+    database:
+      mongo:
+        livroCollection: livros
+        limit: 20
+
